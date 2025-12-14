@@ -1,12 +1,11 @@
 commands.add_command(
-  "criar_tarefas_teste",
-  "Gera 3 tarefas de teste com subtarefas para o jogador.",
+  "generate-test-tasks",
+  "Generates 3 random test tasks with subtasks for the player.",
   ---@param command CustomCommandData
   function(command)
     local player = game.get_player(command.player_index)
     if not (player and player.valid) then return end
 
-    -- garante estrutura GUI
     local gui = Gui and State.ensure_player_state(player) or { }
 
     --- Create a new task
@@ -28,128 +27,149 @@ commands.add_command(
       })
     end
 
-    --------------------------------------------------------------------
-    new_task({
-      title = "Build Radar",
-      desc = "Install a radar near the base.",
-      status = "todo",
-      icon = { type = "item", name = "radar" },
-      subtasks = {
-        { id = 1, title = "Produce 20 electric cables", done = false },
-        { id = 2, title = "Craft 5 electronic circuits", done = false },
-        { id = 3, title = "Manufacture and place the radar", done = false },
+    local tasks = {
+      {
+        title = "Build Radar Coverage",
+        desc = "Install radar network for full map visibility.",
+        status = "todo",
+        icon = { type = "item", name = "radar" },
+        subtasks = {
+          { id = 1, title = "Craft 3 radars", done = false },
+          { id = 2, title = "Place radars in key areas", done = false },
+          { id = 3, title = "Verify full map coverage", done = false },
+        },
       },
-    })
-
-    new_task({
-      title = "Expand Power Grid",
-      desc = "Increase energy production to support new structures.",
-      status = "todo",
-      icon = { type = "item", name = "steam-engine" },
-      subtasks = {
-        { id = 1, title = "Mine additional coal", done = false },
-        { id = 2, title = "Build 3 boilers", done = false },
-        { id = 3, title = "Place 5 steam engines", done = false },
+      {
+        title = "Expand Power Infrastructure",
+        desc = "Scale up energy production for factory growth.",
+        status = "todo",
+        icon = { type = "item", name = "medium-electric-pole" },
+        subtasks = {
+          { id = 1, title = "Build solar farm", done = false },
+          { id = 2, title = "Install 10 accumulators", done = false },
+          { id = 3, title = "Upgrade power lines", done = false },
+        },
       },
-    })
-
-    new_task({
-      title = "Defend the Perimeter",
-      desc = "Strengthen defenses against incoming attacks.",
-      status = "todo",
-      icon = { type = "item", name = "gun-turret" },
-      subtasks = {
-        { id = 1, title = "Craft 10 gun turrets", done = false },
-        { id = 2, title = "Produce 100 firearm magazines", done = false },
-        { id = 3, title = "Deploy turrets around the outer wall", done = false },
+      {
+        title = "Fortify Base Defenses",
+        desc = "Upgrade perimeter security against biters.",
+        status = "doing",
+        icon = { type = "item", name = "laser-turret" },
+        subtasks = {
+          { id = 1, title = "Research laser turret", done = false },
+          { id = 2, title = "Craft 8 laser turrets", done = false },
+          { id = 3, title = "Deploy along front line", done = false },
+        },
       },
-    })
-
-    new_task({
-      title = "Automate Copper Processing",
-      desc = "Create a basic copper plate production line.",
-      status = "todo",
-      icon = { type = "item", name = "copper-plate" },
-      subtasks = {
-        { id = 1, title = "Mine copper ore", done = false },
-        { id = 2, title = "Place 3 furnaces", done = false },
-        { id = 3, title = "Set up copper belt to chest", done = false },
+      {
+        title = "Automate Green Circuits",
+        desc = "Create continuous electronic circuit production.",
+        status = "todo",
+        icon = { type = "item", name = "electronic-circuit" },
+        subtasks = {
+          { id = 1, title = "Place 4 assembling machines", done = false },
+          { id = 2, title = "Setup copper/iron input", done = false },
+          { id = 3, title = "Balance output inserters", done = false },
+        },
       },
-    })
-
-    new_task({
-      title = "Setup Science Lab",
-      desc = "Start researching basic technologies.",
-      status = "todo",
-      icon = { type = "item", name = "lab" },
-      subtasks = {
-        { id = 1, title = "Craft and place a lab", done = false },
-        { id = 2, title = "Produce 10 red science packs", done = false },
-        { id = 3, title = "Insert science packs into lab", done = false },
+      {
+        title = "Launch Rocket Silo",
+        desc = "Complete space program with satellite launch.",
+        status = "todo",
+        icon = { type = "item", name = "rocket-silo" },
+        subtasks = {
+          { id = 1, title = "Build rocket silo", done = false },
+          { id = 2, title = "Produce rocket fuel", done = false },
+          { id = 3, title = "Launch satellite", done = false },
+        },
       },
-    })
-
-    new_task({
-      title = "Establish Iron Mining Outpost",
-      desc = "Secure a remote iron patch for increased production.",
-      status = "todo",
-      icon = { type = "item", name = "electric-mining-drill" },
-      subtasks = {
-        { id = 1, title = "Place 4 electric mining drills", done = false },
-        { id = 2, title = "Connect power poles", done = false },
-        { id = 3, title = "Transport ore via belts to main base", done = false },
+      {
+        title = "Iron Gearbox Production",
+        desc = "Fully automate mechanical component manufacturing.",
+        status = "todo",
+        icon = { type = "item", name = "iron-gear-wheel" },
+        subtasks = {
+          { id = 1, title = "Mine iron outpost", done = false },
+          { id = 2, title = "Build 6 smelters", done = false },
+          { id = 3, title = "Assemble 200 gearboxes", done = false },
+        },
       },
-    })
-
-    new_task({
-      title = "Create Ammo Factory",
-      desc = "Automate firearm magazine production.",
-      status = "todo",
-      icon = { type = "item", name = "firearm-magazine" },
-      subtasks = {
-        { id = 1, title = "Place 2 assemblers", done = false },
-        { id = 2, title = "Feed iron plates automatically", done = false },
-        { id = 3, title = "Store output in chests", done = false },
+      {
+        title = "Oil Processing Plant",
+        desc = "Establish automated crude oil refining operations.",
+        status = "todo",
+        icon = { type = "item", name = "oil-refinery" },
+        subtasks = {
+          { id = 1, title = "Place 2 oil refineries", done = false },
+          { id = 2, title = "Build chemical plant", done = false },
+          { id = 3, title = "Setup pipe network", done = false },
+        },
       },
-    })
-
-    new_task({
-      title = "Oil Processing Setup",
-      desc = "Start basic oil refining and fluid handling.",
-      status = "todo",
-      icon = { type = "item", name = "oil-refinery" },
-      subtasks = {
-        { id = 1, title = "Build and place oil refinery", done = false },
-        { id = 2, title = "Lay down basic pipe network", done = false },
-        { id = 3, title = "Produce petroleum gas", done = false },
+      {
+        title = "Plastic Production Line",
+        desc = "Automate plastic bar manufacturing for advanced circuits.",
+        status = "todo",
+        icon = { type = "item", name = "plastic-bar" },
+        subtasks = {
+          { id = 1, title = "Process petroleum gas", done = false },
+          { id = 2, title = "Craft 4 chemical plants", done = false },
+          { id = 3, title = "Store in buffer chests", done = false },
+        },
       },
-    })
-
-    new_task({
-      title = "Build Vehicle",
-      desc = "Create a car for faster exploration.",
-      status = "todo",
-      icon = { type = "item", name = "car" },
-      subtasks = {
-        { id = 1, title = "Craft engine units", done = false },
-        { id = 2, title = "Assemble a car", done = false },
-        { id = 3, title = "Fuel it with coal", done = false },
+      {
+        title = "Train Station Upgrade",
+        desc = "Improve rail network with automated train scheduling.",
+        status = "doing",
+        icon = { type = "item", name = "train-station" },
+        subtasks = {
+          { id = 1, title = "Build rail signals", done = false },
+          { id = 2, title = "Configure train schedules", done = false },
+          { id = 3, title = "Add waiting bay tracks", done = false },
+        },
       },
-    })
-
-    new_task({
-      title = "Repair Damaged Wall",
-      desc = "Fix breaches in the outer defensive wall.",
-      status = "todo",
-      icon = { type = "item", name = "stone-wall" },
-      subtasks = {
-        { id = 1, title = "Gather stone bricks", done = false },
-        { id = 2, title = "Remove damaged wall sections", done = false },
-        { id = 3, title = "Rebuild wall in vulnerable areas", done = false },
+      {
+        title = "Uranium Processing",
+        desc = "Start nuclear power generation with fuel cycle.",
+        status = "todo",
+        icon = { type = "item", name = "uranium-fuel-cell" },
+        subtasks = {
+          { id = 1, title = "Mine uranium outpost", done = false },
+          { id = 2, title = "Build centrifuges", done = false },
+          { id = 3, title = "Process Kovarex enrichment", done = false },
+        },
       },
-    })
+      {
+        title = "Construction Robot Fleet",
+        desc = "Deploy logistic network with construction capabilities.",
+        status = "todo",
+        icon = { type = "item", name = "construction-robot" },
+        subtasks = {
+          { id = 1, title = "Build roboport grid", done = false },
+          { id = 2, title = "Craft 50 robots", done = false },
+          { id = 3, title = "Place construction chests", done = false },
+        },
+      },
+      {
+        title = "Biters Research Lab",
+        desc = "Unlock military technologies against alien threat.",
+        status = "todo",
+        icon = { type = "item", name = "military-science-pack" },
+        subtasks = {
+          { id = 1, title = "Produce military science", done = false },
+          { id = 2, title = "Research artillery", done = false },
+          { id = 3, title = "Deploy artillery wagons", done = false },
+        },
+      },
+    }
 
+    math.randomseed(game.tick)
+    for i = 1, 3 do
+      local random_index = math.random(#tasks)
+      local random_task = tasks[random_index]
+      new_task(random_task)
+    end
 
+    player.print("Tasks generated!")
     Gui.refresh_tasks()
   end
 )
