@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.12
+  Features:
+    - Added Russian language translation.
+    - Translation: Eldrinn
+  Bug Fixes:
+    - Fixed a missing locale for the map pin icon.
+---------------------------------------------------------------------------------------------------
 Version: 1.0.11
   Features:
     - All mod windows can now be closeds by pressing the Escape key. The key can be customized in the game controls menu.
