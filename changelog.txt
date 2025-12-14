@@ -1,0 +1,72 @@
+---------------------------------------------------------------------------------------------------
+Version: 1.0.11
+  Features:
+    - All mod windows can now be closeds by pressing the Escape key. The key can be customized in the game controls menu.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.10
+  Features:
+    - You can now click through the Task HUD.
+    - Hold Shift while increasing or decreasing a task/subtask’s priority to move it directly to the top or bottom of the list.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.9
+  Features:
+    - Added an icon picker to the task creation window.
+    - Added support for global tasks, which are now visible to all players in the game.
+  Bug Fixes:
+    - Fixed an issue where editing a task could sometimes select the wrong task.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.8
+  Features:
+    - When a task is marked as done, its "Show on map" checkbox will be automatically disabled.
+    - When a task’s location is changed, its "Show on map" checkbox will be automatically enabled.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.7
+  Features:
+    - Added sorting of subtasks, allowing users to reorder subtasks within each task.
+
+  Bug Fixes:
+    - Fixed a desync bug in multiplayer that occurred when players opened the main window of the mod.
+    - Corrected the mod shortcut description in the controls settings menu.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.6
+  Features:
+    - It is now possible to move a task's map tag, and the task's location will update accordingly.
+    - Editing the map tag's title will now also update the task's title.
+
+  Bug Fixes:
+    - Fixed a bug that occurred when right-clicking the task icon selector.
+    - Fixed an issue where the "Show Location" button always displayed the tag at nauvis[0,0].
+---------------------------------------------------------------------------------------------------
+Version: 1.0.5
+  Features:
+    - Added a setting to customize the background opacity of the task list.
+    - Added colors and icons to task types (To do, Doing, Done) for better visual distinction.
+  
+  Bug Fixes:
+    - Fixed an issue where the subtask title was not shown in the input field when editing.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.4
+  Features:
+    - Added new HUD settings to control which task statuses are displayed:
+
+  Bug Fixes:
+    - Fixed a crash when enabling the "Show subtasks in the HUD" setting with a task without subtasks.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.3
+  Bug Fixes:
+    - Fixes a bug that prevented subtasks from displaying correctly in the HUD.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.2
+  Features:
+    - Added display of subtasks in the HUD, with configurable visibility via settings menu.
+    - Implemented task reordering by priority (move up, down).
+
+  Improvements:
+    - Player configuration is now properly initialized at mod start and player creation.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.1
+  Improvements:
+    - Copying a task now also duplicates its icon and subtasks.
+
+  Bug Fixes:
+    - Fixed the "Show Location" button, which previously had no effect.

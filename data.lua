@@ -1,0 +1,6 @@
+require("prototypes.inputs")
+require("prototypes.shortcuts")
+require("prototypes.sprites")
+require("prototypes.tools")
+require("prototypes.signals")
+require("prototypes.frames")

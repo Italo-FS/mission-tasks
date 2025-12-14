@@ -1,0 +1,10 @@
+{
+  "name": "mission-tasks",
+  "version": "1.0.11",
+  "title": "Mission Tasks - A collaborative TODO list",
+  "author": "Wysel",
+  "description": "Organize tasks, assign players, set locations, and comment in real-time.",
+  "factorio_version": "2.0",
+  "dependencies": ["base >= 2.0"],
+  "license": "MIT"
+}
