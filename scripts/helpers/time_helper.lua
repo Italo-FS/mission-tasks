@@ -1,10 +1,6 @@
-local function plural_s(n)
-  return n == 1 and "" or "s"
-end
-
 --- Returns a formatted string with the elapsed time since a past tick.
 --- @param past_tick integer
---- @return string
+--- @return table Localized string table
 function FormatElapsedTime(past_tick)
   if not past_tick then
     return {"time.elapsed-time-unknown"}
@@ -23,12 +19,12 @@ function FormatElapsedTime(past_tick)
   local seconds = total_seconds % 60
 
   if days > 0 then
-    return {"time.elapsed-time-days-only", days, plural_s(days)}
+    return {"time.elapsed-time-days", days}
   elseif hours > 0 then
-    return {"time.elapsed-time-hours-only", hours, plural_s(hours)}
+    return {"time.elapsed-time-hours", hours}
   elseif minutes > 0 then
-    return {"time.elapsed-time-minutes-only", minutes, plural_s(minutes)}
+    return {"time.elapsed-time-minutes", minutes}
   else
-    return {"time.elapsed-time-seconds-only", seconds, plural_s(seconds)}
+    return {"time.elapsed-time-seconds", seconds}
   end
 end
