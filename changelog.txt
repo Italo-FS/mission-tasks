@@ -1,8 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.13
+  Improvements:
+    - Add pluralization support for time strings. (Eldrinn)
+---------------------------------------------------------------------------------------------------
 Version: 1.0.12
   Features:
-    - Added Russian language translation.
-    - Translation: Eldrinn
+    - Added Russian language translation. (Eldrinn)
   Bug Fixes:
     - Fixed a missing locale for the map pin icon.
 ---------------------------------------------------------------------------------------------------

@@ -19,41 +19,50 @@ function Gui.update_task_view_panel(player, task_id)
 end
 
 function Gui.close_all_secondaries_frames(player)
-  -- Destroy TaskFrame
-  local task_frame = player.gui.screen["mission-tasks-task-frame"]
-  if task_frame and task_frame.valid then task_frame.destroy() end
+  local secondary_frames = {
+    "mission-tasks-task-frame",
+    "mission-tasks-subtask-frame",
+    "mission-tasks-import-frame",
+    "mission-tasks-export-frame",
+    "mission-tasks-settings-frame",
+    "mission-tasks-info-frame",
+    "mission-tasks-confirm-frame"
+  }
 
-  -- Destroy SubtaskFrame
-  local subtask_frame = player.gui.screen["mission-tasks-subtask-frame"]
-  if subtask_frame and subtask_frame.valid then subtask_frame.destroy() end
+  local closed_any = false
 
-  -- Destroy ImportFrame
-  local import_frame = player.gui.screen["mission-tasks-import-frame"]
-  if import_frame and import_frame.valid then import_frame.destroy() end
+  for _, frame_name in ipairs(secondary_frames) do
+    local frame = player.gui.screen[frame_name]
+    if frame and frame.valid then
+      frame.destroy()
+      closed_any = true
+    end
+  end
 
-  -- Destroy ExportFrame
-  local export_frame = player.gui.screen["mission-tasks-export-frame"]
-  if export_frame and export_frame.valid then export_frame.destroy() end
-  
-  -- Destroy SettingsFrame
-  local settings_frame = player.gui.screen["mission-tasks-settings-frame"]
-  if settings_frame and settings_frame.valid then settings_frame.destroy() end
+  local main_frame = player.gui.screen["mission-tasks-main-frame"]
+  if main_frame and main_frame.valid then
+    player.opened = main_frame
+  end
 
-  -- Destroy InfoFrame
-  local info_frame = player.gui.screen["mission-tasks-info-frame"]
-  if info_frame and info_frame.valid then info_frame.destroy() end
+  return closed_any
+end
 
-  -- Destroy InfoFrame
-  local confirm_frame = player.gui.screen["mission-tasks-confirm-frame"]
-  if confirm_frame and confirm_frame.valid then confirm_frame.destroy() end
+function Gui.destroy_main_frame(player)
+  local main_frame = player.gui.screen["mission-tasks-main-frame"]
+  if main_frame and main_frame.valid then main_frame.destroy() end
 end
 
 function Gui.destroy_all(player)
   Gui.close_all_secondaries_frames(player)
+  Gui.destroy_main_frame(player)
+end
 
-  -- Destroy MainFrame
-  local main_frame = player.gui.screen["mission-tasks-main-frame"]
-  if main_frame and main_frame.valid then main_frame.destroy() end
+function Gui.destroy_smart(player)
+  local closed_secondary = Gui.close_all_secondaries_frames(player)
+  
+  if not closed_secondary then
+    Gui.destroy_main_frame(player)
+  end
 end
 
 --- Updates the TaskView for a player, and TaskList and TaskHud for all players

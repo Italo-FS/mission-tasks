@@ -42,6 +42,8 @@ function InfoFrame.draw(player)
   ------------------------------------------------
 
   GuiHelper.add_bottom_bar(frame, "mission-tasks-info-frame")
+
+  player.opened = frame
 end
 
 --- Destroy the frame.

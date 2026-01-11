@@ -1,6 +1,6 @@
 {
   "name": "mission-tasks",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "title": "Mission Tasks - A collaborative TODO list",
   "author": "Wysel",
   "description": "Organize tasks, assign players, set locations, and comment in real-time.",

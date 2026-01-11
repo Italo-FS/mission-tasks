@@ -225,6 +225,7 @@ function SettingsFrame.draw(player)
   frame.auto_center = true
 
   draw_settings(player, frame)
+  player.opened = frame
 end
 
 function SettingsFrame.destroy(player)
