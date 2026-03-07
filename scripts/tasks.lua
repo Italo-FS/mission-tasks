@@ -82,10 +82,10 @@ end
 function Tasks._update_field(task, field, new_value, player_id, record)
   local function update_map_tag()
     if (field == "title" or field == "icon") and task.show_on_map and task.location then
-      if task.map_tag then
+      if task.map_tag and task.map_tag.valid then
         task.map_tag.destroy()
-        task.map_tag = nil
       end
+      task.map_tag = nil
 
       local player = game.get_player(player_id)
       if player then
